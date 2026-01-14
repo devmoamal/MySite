@@ -1,6 +1,7 @@
-import Text from "@/components/common/Text";
-import FlickeringGrid from "@/components/FlickeringGrid";
 import { cn } from "@/lib/utils";
+import About from "@/sections/Home/About";
+import OpenSourceProjects from "@/sections/Home/OpenSourceProjects";
+import SaasProjects from "@/sections/Home/SaasProjects";
 
 type HomeProps = {
   className?: string;
@@ -10,19 +11,18 @@ function Home({ className }: HomeProps) {
   return (
     <div
       className={cn(
-        "relative h-screen w-screen overflow-hidden bg-black",
+        "relative",
+        "overflow-hidden bg-background items-center justify-center",
+        "px-[10%] sm:px-[15%] md:px-[20%] lg:px-[25%]",
         className
       )}
     >
-      <div className="absolute inset-0 z-0 p-3">
-        <FlickeringGrid />
-      </div>
-
-      <div className="relative z-10 flex h-full w-full items-center justify-center p-4">
-        <Text className="text-white text-5xl font-bold tracking-tighter opacity-75">
-          s o o o o o o n
-        </Text>
-      </div>
+      {/* About section */}
+      <About />
+      {/* SaaS projects section */}
+      <SaasProjects />
+      {/* Open source projects section */}
+      <OpenSourceProjects />
     </div>
   );
 }
