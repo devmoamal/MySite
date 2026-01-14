@@ -4,7 +4,7 @@ import Avatar from "@/components/common/Avatar";
 import IconButton from "@/components/common/IconButton";
 import { Github, Instagram, Send } from "lucide-react";
 
-import myPhoto from "@/assets/myPhoto.jpg";
+import MyAvatar from "@/assets/avatar.jpg";
 
 type AboutProps = {
   className?: string;
@@ -13,7 +13,7 @@ type AboutProps = {
 function About({ className }: AboutProps) {
   return (
     <div className={cn("flex flex-col ", className)}>
-      <Avatar size="md" src={myPhoto} />
+      <Avatar size="md" src={MyAvatar} />
       <Text className="text-text" weight="bold">
         Moamal Hussin
       </Text>
