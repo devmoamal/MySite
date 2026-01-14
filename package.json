@@ -7,7 +7,8 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
-    "deploy": "gh-pages -d dist"
+    "push:gh-pages": "gh-pages -d dist",
+    "deploy": "bun run build & bun run push:gh-pages"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.1.18",
