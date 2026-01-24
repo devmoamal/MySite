@@ -1,5 +1,4 @@
 import { Outlet, createRootRoute } from "@tanstack/react-router";
-import { TanStackRouterDevtools } from "@tanstack/router-devtools";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import useDarkMode from "@/hooks/useDarkMode";
@@ -32,7 +31,6 @@ function RootComponent() {
         </div>
         <Footer />
       </div>
-      <TanStackRouterDevtools position="bottom-right" />
     </>
   );
 }
