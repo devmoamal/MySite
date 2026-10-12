@@ -1,33 +1,74 @@
+import { Link } from "@tanstack/react-router";
 import useDarkMode from "@/hooks/useDarkMode";
-import { cn } from "@/lib/utils";
-import { Moon, Sun } from "lucide-react";
-import IconButton from "../common/IconButton";
-import Text from "../common/Text";
+import { Sun, Moon } from "lucide-react";
 
 type NavbarProps = {
   className?: string;
 };
 
-function Navbar({ className }: NavbarProps) {
+export default function Navbar({ className = "" }: NavbarProps) {
   const { theme, toggle } = useDarkMode();
-  const icon = theme === "dark" ? Sun : Moon;
 
   return (
-    <nav
-      className={cn(
-        "static top-0 left-0 right-0 z-50 flex bg-background items-center px-4 py-2 justify-between",
-        className
-      )}
+    <header
+      className={`sticky top-0 z-50 w-full backdrop-blur-md bg-background/80 border-b border-border transition-colors ${className}`}
     >
-      {/* Logo here */}
-      <Text className="text-text" weight="bold" size="lg">
-        M
-      </Text>
+      <div className="max-w-[760px] mx-auto px-4 sm:px-6 h-14 flex items-center justify-between">
+        {/* Navigation Tabs on the left (replacing logo/name) */}
+        <nav className="flex items-center gap-4 sm:gap-6">
+          <Link
+            to="/"
+            activeProps={{
+              className: "text-foreground font-semibold",
+            }}
+            inactiveProps={{
+              className: "text-text-muted hover:text-foreground",
+            }}
+            className="text-xs sm:text-sm transition-colors font-medium"
+          >
+            Home
+          </Link>
 
-      {/* Dark mode toggle */}
-      <IconButton Icon={icon} onClick={toggle} />
-    </nav>
+          <Link
+            to="/projects"
+            activeProps={{
+              className: "text-foreground font-semibold",
+            }}
+            inactiveProps={{
+              className: "text-text-muted hover:text-foreground",
+            }}
+            className="text-xs sm:text-sm transition-colors font-medium"
+          >
+            Projects
+          </Link>
+
+          <Link
+            to="/resume"
+            activeProps={{
+              className: "text-foreground font-semibold",
+            }}
+            inactiveProps={{
+              className: "text-text-muted hover:text-foreground",
+            }}
+            className="text-xs sm:text-sm transition-colors font-medium"
+          >
+            Resume
+          </Link>
+        </nav>
+
+        {/* Dark/Light mode toggle - pure icon, no border, no background */}
+        <button
+          onClick={toggle}
+          aria-label="Toggle color theme"
+          className="p-1.5 text-text-muted hover:text-foreground transition-colors cursor-pointer"
+        >
+          {theme === "dark" ? (
+            <Sun className="w-4 h-4 sm:w-5 sm:h-5 text-amber-400" />
+          ) : (
+            <Moon className="w-4 h-4 sm:w-5 sm:h-5 text-neutral-700" />
+          )}
+        </button>
+      </div>
+    </header>
   );
 }
-
-export default Navbar;

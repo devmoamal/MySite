@@ -4,13 +4,10 @@ import "./assets/index.css";
 import {
   RouterProvider,
   createRouter,
-  createHashHistory,
 } from "@tanstack/react-router";
 import { routeTree } from "./routeTree.gen";
 
-const hashHistory = createHashHistory();
-
-const router = createRouter({ routeTree, history: hashHistory });
+const router = createRouter({ routeTree });
 
 // Register the router instance for type safety
 declare module "@tanstack/react-router" {

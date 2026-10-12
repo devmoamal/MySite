@@ -1,30 +1,19 @@
-import { cn } from "@/lib/utils";
 import About from "@/sections/Home/About";
-import OpenSourceProjects from "@/sections/Home/OpenSourceProjects";
-import SaasProjects from "@/sections/Home/SaasProjects";
+import SkillsMarquee from "@/sections/Home/SkillsMarquee";
+import FeaturedProjects from "@/sections/Home/FeaturedProjects";
+import OpenSourceSection from "@/sections/Home/OpenSourceSection";
+import GithubContributions from "@/sections/Home/GithubContributions";
+import ContactSection from "@/sections/Home/ContactSection";
 
-type HomeProps = {
-  className?: string;
-};
-
-function Home({ className }: HomeProps) {
+export default function Home() {
   return (
-    <div
-      className={cn(
-        "relative",
-        "overflow-hidden bg-background items-center justify-center",
-        "px-[10%] sm:px-[15%] md:px-[20%] lg:px-[25%]",
-        className
-      )}
-    >
-      {/* About section */}
+    <div className="flex flex-col gap-2 pb-16">
       <About />
-      {/* SaaS projects section */}
-      <SaasProjects />
-      {/* Open source projects section */}
-      <OpenSourceProjects />
+      <SkillsMarquee />
+      <FeaturedProjects />
+      <OpenSourceSection />
+      <GithubContributions />
+      <ContactSection />
     </div>
   );
 }
-
-export default Home;

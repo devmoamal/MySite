@@ -1,65 +1,63 @@
-import type { Project } from "@/types";
-import { Github } from "lucide-react";
+import type { Project, OpenSourceProject } from "@/types";
+import { Globe } from "lucide-react";
 
 /**
  * Technologies
  */
 export const TECHNOLOGIES = [
-  "C#",
-  "PHP",
-  "Python",
-  "JavaScript",
-
   "Bun",
   "Hono",
+  "ReactJs",
+  "Typescript",
+  "Vite",
   "Drizzle",
   "PostgreSQL",
   "Sqlite",
-
-  "Vite",
-  "ReactJs",
-
-  "Typescript",
   "Tailwind CSS",
+  "Python",
+  "C#",
+  "JavaScript",
+  "PHP",
   "Zod",
   "Zustand",
   "Tanstack-Query",
   "Tanstack-Router",
-
   "Bruno",
 ] as const;
 
 /**
- * Open source projects
+ * Projects (Rafidain Land Cloud)
  */
-export const OPEN_SOURCE_PROJECTS: Project[] = [
+export const ALL_PROJECTS: Project[] = [
   {
-    title: "My Link Space",
-    description: "Simple and lightweight self-hosted link in bio sites like",
-    Icon: Github,
-    stack: ["Bun", "Hono", "Vite", "ReactJs", "Sqlite"],
-    link: "https://github.com/devmoamal/MyLinkSpace",
-  },
-
-  {
-    title: "Pixel Space",
-    description:
-      "A simple ReactJS app that can create pixel art and export it.",
-    Icon: Github,
-    stack: ["Vite", "ReactJs"],
-    link: "https://github.com/devmoamal/PixelSpace",
-  },
-
-  {
-    title: "Lite Markdown Editor",
-    description: "A minimal markdown block editor ( Notion Like ).",
-    Icon: Github,
-    stack: ["Vite", "ReactJs"],
-    link: "https://github.com/devmoamal/LiteMarkdownEditor",
+    title: "Rafidain Land",
+    tagline: "E-Commerce",
+    description: "A high-performance digital commerce platform",
+    image: "./rafidainland.png",
+    Icon: Globe,
+    link: "https://rafidainland.cloud",
+    category: "Cloud",
+    featured: true,
+    statusBadge: "Live Platform",
   },
 ];
 
+export const FEATURED_PROJECTS = ALL_PROJECTS;
+
 /**
- * SaaS projects
+ * Minimalist Open Source Projects (One card per row, no stack pills, pure description)
  */
-export const SAAS_PROJECTS: Project[] = [];
+export const OPEN_SOURCE_PROJECTS: OpenSourceProject[] = [
+  {
+    title: "MyLinkSpace",
+    description:
+      "Simple, lightweight, and customizable self-hosted link-in-bio platform giving you complete ownership of your personal links and brand.",
+    link: "https://github.com/devmoamal/MyLinkSpace",
+  },
+  {
+    title: "bhvrd",
+    description:
+      "CLI scaffolding tool designed to bootstrap full-stack monorepos powered by Bun, Hono, Vite, React, and Drizzle ORM in seconds.",
+    link: "https://github.com/devmoamal/bhvrd",
+  },
+];

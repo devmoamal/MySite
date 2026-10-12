@@ -1,8 +1,6 @@
 import { Outlet, createRootRoute } from "@tanstack/react-router";
 import Navbar from "@/components/layout/Navbar";
-import Footer from "@/components/layout/Footer";
 import useDarkMode from "@/hooks/useDarkMode";
-import { cn } from "@/lib/utils";
 
 export const Route = createRootRoute({
   component: RootComponent,
@@ -11,26 +9,12 @@ export const Route = createRootRoute({
 function RootComponent() {
   const { theme } = useDarkMode();
 
-  console.log(location.pathname);
-
-  if (location.pathname.includes("/policy")) {
-    return (
-      <>
-        <Navbar />
-        <Outlet />
-      </>
-    );
-  }
-
   return (
-    <>
-      <div className={cn(theme)}>
-        <Navbar />
-        <div className={cn("bg-background h-screen mt-8", theme)}>
-          <Outlet />
-        </div>
-        <Footer />
-      </div>
-    </>
+    <div className={`min-h-screen flex flex-col bg-background text-foreground antialiased ${theme}`}>
+      <Navbar />
+      <main className="flex-1 max-w-[760px] w-full mx-auto px-4 sm:px-6 pt-4 sm:pt-6">
+        <Outlet />
+      </main>
+    </div>
   );
 }
